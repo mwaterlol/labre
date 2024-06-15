@@ -20,7 +20,6 @@ export const ProductForm = ({ onSubmit, actions }: ProductFormProps) => {
     handleSubmit,
     formState: { errors },
   } = form;
-  console.log(errors);
 
   return (
     <FormProvider {...form}>

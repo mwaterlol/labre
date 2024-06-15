@@ -1,11 +1,13 @@
 import '@mantine/core/styles.css';
 import { Flex, MantineProvider } from '@mantine/core';
 import { Notifications } from '@mantine/notifications';
+import { useStrictMode } from 'react-konva';
 import { Router } from './Router';
 import { theme } from './theme';
 import '@mantine/notifications/styles.css';
 
 export default function App() {
+  useStrictMode(true);
   return (
     <MantineProvider theme={theme}>
       <Notifications position="top-right" />

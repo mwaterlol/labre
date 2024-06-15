@@ -12,7 +12,13 @@ export const HomePage = () => {
   const onSubmit = async (data: ProductFormData) => {
     setLoading(true);
     try {
-      const response = await getBackground(data.productPicture.fileData);
+      resultStore.set(undefined);
+      const response = await getBackground(
+        data.productPicture.fileData
+          .replace(/^data:image\/jpeg;base64,/, '')
+          .replace(/^data:image\/png;base64,/, '')
+          .replace(/^data:image\/gif;base64,/, '')
+      );
       resultStore.set(response);
       navigate('/results');
     } catch (error) {
