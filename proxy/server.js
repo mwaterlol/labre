@@ -4,9 +4,11 @@ const { createProxyMiddleware } = require('http-proxy-middleware');
 const axios = require('axios');
 
 const app = express();
+const cors = require('cors');
 const port = 3001;
 
 app.use(express.json({ limit: '50mb' }));
+app.use(cors()); 
 
 app.post('/process_image', async (req, res) => {
   try {
@@ -47,3 +49,5 @@ app.post('/process_image', async (req, res) => {
 app.listen(port, () => {
   console.log(`Proxy server listening at http://localhost:${port}`);
 });
+
+module.exports = app;
